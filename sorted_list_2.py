@@ -16,9 +16,11 @@ def compare_author_asc(x, y):
 
 def get_all_authors(books):
     '''Возвращает список уникальных авторов, отсортированный по алфавиту (по возрастанию).'''
+    if not books: 
+        return []
     unique_authors =list(set(b['author'] for b in books))
     heap_sort_custom(unique_authors,compare_author_asc)
-    return sorted(set(b['author'] for b in books))
+    return unique_authors
 
 
 def get_sorted_list_2(books, author):
