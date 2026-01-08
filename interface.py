@@ -1,14 +1,33 @@
-from read_books import read_books
+from read_books import read_books,print_books
 from sorted_list_1 import get_sorted_list_1
 from sorted_list_2 import get_sorted_list_2, get_all_authors
-from sorted_list_3 import get_sorted_list_3
+from sorted_list_3 import get_sorted_list_3, get_year_range
 
 
-def print_books(books):
-    """Помощник: красивый вывод списка книг."""
-    for book in books:
-        print(f"  {book['author']}; {book['title']}; {book['publisher']}; "
-              f"{book['year']}; {book['pages']}; {book['copies']}")
+def main_menu():
+    books = read_books('books.txt')
+    print("Здравствуйте! Вас приветствует программа «Библиотека»\n")
+
+    while True:
+        print("\nВы находитесь в главном меню:")
+        print("1. Полный список всех книг")
+        print("2. Список книг определённого автора")
+        print("3. Список всех книг, выпущенных в период с N1 до N2 года")
+        print("0. Выход\n")
+        print('Обратите внимание - информация выводится в формате: автор; название; издательство; год выпуска; количество страниц; количество экземпляров')
+        choice = input("\nВведите номер пункта: ").strip()
+
+        if choice == '1':
+            menu_report_1(books)
+        elif choice == '2':
+            menu_report_2(books)
+        elif choice == '3':
+            menu_report_3(books)
+        elif choice == '0':
+            print("До свидания!")
+            break
+        else:
+            print("❌ Неверный ввод. Введите 0, 1, 2 или 3.")
 
 
 def menu_report_1(books):
@@ -74,12 +93,19 @@ def menu_report_2(books):
 
 def menu_report_3(books):
     print("\n--- 3. Список книг в периоде с N1 по N2 ---")
+    
+    min_year, max_year = get_year_range(books)
+    print(f"Доступные годы: с {min_year} по {max_year}")
+
     while True:
         try:
-            n1 = int(input("Введите N1 (начало периода): "))
-            n2 = int(input("Введите N2 (конец периода): "))
+            n1 = int(input("Введите N1:"))
+            n2 = int(input("Введите N2:"))
             if n1 > n2:
                 print("❌ N1 не может быть больше N2.")
+                continue
+            if n1 < min_year or n2 > max_year:
+                print(f"❌ Годы должны быть в диапазоне от {min_year} до {max_year}.")
                 continue
             break
         except ValueError:
@@ -93,29 +119,3 @@ def menu_report_3(books):
         print_books(result)
 
     input("\nНажмите Enter, чтобы вернуться в главное меню...")
-
-
-def main_menu():
-    books = read_books('books.txt')
-    print("Здравствуйте! Вас приветствует программа «Библиотека»\n")
-
-    while True:
-        print("\nВы находитесь в главном меню:")
-        print("1. Полный список всех книг")
-        print("2. Список книг определённого автора")
-        print("3. Список всех книг, выпущенных в период с N1 до N2 года")
-        print("0. Выход")
-
-        choice = input("\nВведите номер пункта: ").strip()
-
-        if choice == '1':
-            menu_report_1(books)
-        elif choice == '2':
-            menu_report_2(books)
-        elif choice == '3':
-            menu_report_3(books)
-        elif choice == '0':
-            print("До свидания!")
-            break
-        else:
-            print("❌ Неверный ввод. Введите 0, 1, 2 или 3.")
