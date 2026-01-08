@@ -15,3 +15,9 @@ def read_books(filename):
                     'copies': int(copies)
                 })
     return books
+
+def print_books(books):
+    '''Красивый вывод списка книг.'''
+    for book in books:
+        print(f"  {book['author']}; {book['title']}; {book['publisher']}; "
+              f"{book['year']}; {book['pages']}; {book['copies']}")
