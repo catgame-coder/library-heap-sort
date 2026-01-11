@@ -1,0 +1,7 @@
+Грибоедов А.С.;Стихотворения;Эксмо;1820;96;10
+Shelley;The Last Man;Lackington, Hughes;1826;400;много
+Пелевин В.О.;Generation 'П';Варгус;1999;352;7
+Dostoevsky;The Brothers Karamazov;AICo;1880;800;5
+Orwell;Homage to Catalonia;Secker & Warburg;1938;300;9
+Тургенев И.С.;Дворянское гнездо;Азбука;1859;352;6
+Хемингуэй Э.;Иметь и не иметь;АСТ;1937;288;4

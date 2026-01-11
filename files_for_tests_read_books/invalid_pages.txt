@@ -1,0 +1,8 @@
+Tolkien;The Lord of the Rings;Allen & Unwin;1954;1216;6
+Austen;Pride and Prejudice;T. Egerton;1813;432;4
+Достоевский Ф.М.;Преступление и наказание;АСТ;1866;672;5
+Huxley;Brave New World;Chatto & Windus;1932;триста одиннадцать;6
+Акунин Б.;Азазель;Захаров;1998;416;8
+Atwood;The Handmaid's Tale;McClelland and Stewart;1985;311;7
+Лермонтов М.Ю.;Герой нашего времени;Эксмо;1840;256;4
+Rowling;Harry Potter;Bloomsbury;1997;223;12

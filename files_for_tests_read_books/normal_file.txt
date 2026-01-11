@@ -1,0 +1,10 @@
+Толстой Л.Н.;Война и мир;Эксмо;1869;1225;3  
+Orwell;1984;Secker & Warburg;1949;328;7  
+Чехов А.П.;Рассказы;Азбука;1890;560;5  
+Tolkien;The Lord of the Rings;Allen & Unwin;1954;1216;6  
+Булгаков М.А.;Мастер и Маргарита;Советский писатель;1967;480;8  
+Austen;Pride and Prejudice;T. Egerton;1813;432;4  
+Пушкин А.С.;Евгений Онегин;АСТ;1833;288;10  
+Bradbury;Fahrenheit 451;Ballantine Books;1953;249;9  
+Гоголь Н.В.;Мёртвые души;Оникс;1842;352;2  
+Rowling;Harry Potter and the Philosopher;Bloomsbury;1997;223;12
