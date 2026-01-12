@@ -1,12 +1,12 @@
 from heap_sort_custom import heap_sort_custom
 
 def compare_report1(a, b):
-    '''Автор ↑, год ↓, экземпляры ↓'''
+    '''Автор (по  возрастанию)  +  год  выпуска  (по  убыванию)  +  количество  экземпляров  (по убыванию).'''
     if a['author'] != b['author']:
-        return a['author'] > b['author']   # если a > b → a должен быть ПОЗЖЕ → значит, в куче b "больше"
+        return a['author'] < b['author']   # Если a < b → значит, a должен быть раньше → в куче b "больше"
     if a['year'] != b['year']:
-        return a['year'] < b['year']       # по убыванию: если a < b → a позже
-    return a['copies'] < b['copies']
+        return a['year'] > b['year']       # по убыванию: если a > b → a позже (т.к. он больше)
+    return a['copies'] > b['copies']
 
 def get_sorted_list_1(books):
     '''Возвращает отсортированный список по отчёту 1.'''

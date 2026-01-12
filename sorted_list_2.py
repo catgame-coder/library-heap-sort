@@ -1,12 +1,12 @@
 from heap_sort_custom import heap_sort_custom
 
-'''Сортировка по издателю ↓, названию ↑ для конкретного автора'''
 def compare_report2(a, b):
+    '''Название (по возрастанию) + издательство (по убыванию).'''
     if a['author'] != b['author']:
         raise ValueError("Сравнение книг разных авторов")
-    if a['publisher'] != b['publisher']:
-        return a['publisher'] < b['publisher']
-    return a['title'] > b['title']
+    if a['title'] != b['title']:
+        return a['title'] < b['title']
+    return a['publisher'] > b['publisher']
 
 
 def compare_author_asc(x, y):
