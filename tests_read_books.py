@@ -89,6 +89,18 @@ def test_read_books():
             "expect_error": False
         },
         {
+            "name": "пробелы внутри полей",
+            "filename": "files_for_tests_read_books/space_inside_fields.txt",
+            "expected": [
+                {'author': 'Досто евский Ф.М.', 'title': 'Иди от', 'publisher': 'АС Т', 'year': 1869, 'pages': 640, 'copies': 3},
+                {'author': 'О рвелл', 'title': '19 84', 'publisher': 'Сек кер & Вар бург', 'year': 1949, 'pages': 328, 'copies': 7},
+                {'author': 'Чех ов А.П.', 'title': 'Три сест ры', 'publisher': 'Аз бука', 'year': 1901, 'pages': 180, 'copies': 5},
+                {'author': 'Тол стой Л.Н.', 'title': 'Ан на Каре ни на', 'publisher': 'Экс мо', 'year': 1877, 'pages': 864, 'copies': 2},
+                {'author': 'Роулинг Дж.К.', 'title': 'Гар ри Пот тер', 'publisher': 'Блумсбери', 'year': 1997, 'pages': 309, 'copies': 10}
+            ],
+            "expect_error": False
+        },
+        {
             "name": "пустой файл",
             "filename": "files_for_tests_read_books/empty_file.txt",
             "expected": None,
