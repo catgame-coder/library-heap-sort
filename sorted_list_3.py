@@ -2,9 +2,9 @@ from heap_sort_custom import heap_sort_custom
 
 def compare_report3(a, b):
     '''Автор (по возрастанию) + год выпуска (по убыванию).'''
-    if a['author'] != b['author']:
-        return a['author'] < b['author']
-    return a['year'] > b['year']
+    if a['year'] != b['year']:
+        return a['year'] > b['year']
+    return a['author'] < b['author']
 
 def get_sorted_list_3(books, n1, n2):
     '''Возвращает отсортированные книги в диапазоне лет [n1, n2].'''
