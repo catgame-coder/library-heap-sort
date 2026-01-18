@@ -11,7 +11,7 @@ def main_menu():
         print("Программа завершена.")
         return
     
-    books = read_books('books.txt')
+    books = result
     print("Здравствуйте! Вас приветствует программа «Библиотека»\n")
 
     while True:
