@@ -161,23 +161,27 @@ def test_read_books():
     all_passed = True
 
     for i, case in enumerate(test_cases, 1):
-        try:
-            if case["expect_error"]:
-                try:
-                    books = read_books(case['filename'])
-                    print(f"❌ Тест {i} ({case['name']}): ошибка НЕ возникла")
-                    all_passed = False
-                except ValueError as e:
-                    if case["error_message"] in str(e):
-                        print(f"✅ Тест {i} ({case['name']}): корректная ошибка")
-                    else:
-                        print(f"❌ Тест {i} ({case['name']}): неверное сообщение: {e}")
-                        all_passed = False
-                except Exception as e:
-                    print(f"❌ Тест {i} ({case['name']}): неожиданное исключение: {e}")
-                    all_passed = False
+
+        success, result = read_books(case["filename"])
+
+        if case["expect_error"]:
+            if success:
+                print(f"❌ Тест {i} ({case['name']}): ошибка НЕ возникла")
+                all_passed = False
             else:
-                books = read_books(case["filename"])
+                # result — это строка с сообщением об ошибке
+                if case["error_message"] in result:
+                    print(f"✅ Тест {i} ({case['name']}): корректная ошибка")
+                else:
+                    print(f"❌ Тест {i} ({case['name']}): неверное сообщение: {result}")
+                    all_passed = False
+       
+        else:
+            if not success:
+                print(f"❌ Тест {i} ({case['name']}): неожиданная ошибка: {result}")
+                all_passed = False
+            else:
+                books = result
                 if books == case["expected"]:
                     print(f"✅ Тест {i} ({case['name']}): OK")
                 else:
@@ -185,7 +189,8 @@ def test_read_books():
                     print(f"   Файл:      {case['filename']}")
                     print(f"   Получено:  {books}")
                     print(f"   Ожидалось: {case['expected']}")
-                     # Выводим первую отличающуюся книгу
+                    
+                    # Выводим первую отличающуюся книгу
                     for j in range(min(len(books), len(case["expected"]))):
                         got = books[j]
                         exp = case["expected"][j]
@@ -199,16 +204,11 @@ def test_read_books():
                         print(f"   Длины списков разные: получено={len(books)}, ожидалось={len(case['expected'])}")
                     all_passed = False
 
-        except FileNotFoundError:
-            print(f"❌ Тест {i} ({case['name']}): файл '{case['filename']}' не найден")
-            all_passed = False
-
     return all_passed
 
 
 # Генератор большого файла с 5000 книг (запускается один раз) 
 def generate_big_test_file():
-
     with open("files_for_tests_read_books/test_5000.txt", "w", encoding="utf-8") as f:
         for i in range(5000):
             f.write(f"Author{i};Book{i};Publisher{i};{2000 + i % 50};{100 + i % 500};{1 + i % 20}\n")
@@ -218,8 +218,8 @@ def generate_big_test_file():
 if __name__ == "__main__":
 
     generate_big_test_file()
-
     success = test_read_books()
+
     if success:
         print("\n🎉 Все тесты read_books пройдены!")
     else:

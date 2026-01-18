@@ -5,6 +5,12 @@ from sorted_list_3 import get_sorted_list_3, get_year_range
 
 
 def main_menu():
+    success, result = read_books('books.txt')
+    if not success:
+        print(f"❌ {result}")
+        print("Программа завершена.")
+        return
+    
     books = read_books('books.txt')
     print("Здравствуйте! Вас приветствует программа «Библиотека»\n")
 
