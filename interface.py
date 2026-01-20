@@ -5,13 +5,14 @@ from sorted_list_3 import get_sorted_list_3, get_year_range
 
 
 def main_menu():
-    success, result = read_books('books.txt')
+    success, data, errors = read_books('books.txt')
     if not success:
-        print(f"❌ {result}")
+        print(f"❌ Критическая ошибка: {data}")
         print("Программа завершена.")
         return
     
-    books = result
+    books = data
+    total_attemped = len(books) + len(errors)
     print("Здравствуйте! Вас приветствует программа «Библиотека»\n")
 
     while True:
@@ -21,6 +22,16 @@ def main_menu():
         print("3. Список всех книг, выпущенных в период с N1 до N2 года")
         print("0. Выход\n")
         print('Обратите внимание - информация выводится в формате: автор; название; издательство; год выпуска; количество страниц; количество экземпляров')
+        print(f"✅ Загружено {len(books)} книг")
+        
+        if errors:
+            if len(errors)==1:
+                print(f"⚠️  Обнаружена ошибка в {len(errors)} строке:")
+            else:
+                print(f"⚠️  Обнаружены ошибки в {len(errors)} строках:")
+            for err in errors:
+                print(f"   • {err}")
+
         choice = input("\nВведите номер пункта: ").strip()
 
         if choice == '1':
