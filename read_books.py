@@ -1,16 +1,17 @@
 import os
 
 def read_books(filename):
-    '''Читает книги из текстового файла.'''
+    '''Читает книги из текстового файла. Возвращает (успех, данные_или_ошибка, ошибки_строк).'''
     
     # Проверяем, существует ли файл
     if not os.path.exists(filename):
-        return False, f"Файл '{filename}' не найден. Пожалуйста, проверьте наличие файла."
+        return False, f"Файл '{filename}' не найден. Пожалуйста, проверьте наличие файла.",None
     
     # Проверяем, пустой ли файл (физически)
     if os.path.getsize(filename) == 0:
-        return False, 'Файл для чтения пустой, пожалуйста проверьте наличие данных.'
+        return False, 'Файл для чтения пустой, пожалуйста проверьте наличие данных.', None
 
+    errors=[]
     try:
         books = []
         with open(filename, 'r', encoding='utf-8') as f:
@@ -21,7 +22,8 @@ def read_books(filename):
 
                 parts = line.split(';')
                 if len(parts) != 6:
-                    raise ValueError(f"Ошибка в строке {line_num}: ожидается 6 значений, получено {len(parts)}")
+                    errors.append(f"Ошибка в строке {line_num}: ожидается 6 значений, получено {len(parts)}")
+                    continue
 
                 # Убираем пробелы вокруг каждого поля
                 author = parts[0].strip()
@@ -33,7 +35,8 @@ def read_books(filename):
 
                 # Проверяем, что числовые поля не пустые
                 if not year_str or not pages_str or not copies_str:
-                    raise ValueError(f"Ошибка в строке {line_num}: числовые поля не могут быть пустыми")
+                    errors.append(f"Ошибка в строке {line_num}: числовые поля не могут быть пустыми")
+                    continue
 
                 # Преобразуем в целые числа
                 try:
@@ -41,11 +44,13 @@ def read_books(filename):
                     pages = int(pages_str)
                     copies = int(copies_str)
                 except ValueError:
-                    raise ValueError(f"Ошибка в строке {line_num}: год, страницы и экземпляры должны быть целыми числами")
+                    errors.append(f"Ошибка в строке {line_num}: год, страницы и экземпляры должны быть целыми числами")
+                    continue
 
                 # Проверяем, что значения положительные
                 if year <= 0 or pages <= 0 or copies <= 0:
-                    raise ValueError(f"Ошибка в строке {line_num}: значения должны быть положительными")
+                    errors.append(f"Ошибка в строке {line_num}: значения должны быть положительными")
+                    continue
 
                 # Добавляем книгу в список
                 books.append({
@@ -59,12 +64,12 @@ def read_books(filename):
 
         # Если ни одной книги не прочитано — ошибка
         if not books:
-            return False,"Файл не содержит корректных данных (только пустые строки или некорректные записи)."
+            return False,"Файл не содержит корректных данных (только пустые строки или некорректные записи).",None
 
-        return True,books
+        return True,books,errors
     
     except Exception as e:
-        return False,str(e)
+        return False,f"Неожиданная ошибка при чтении файла: {e}", None
 
 def print_books(books):
     '''Красивый вывод списка книг.'''
