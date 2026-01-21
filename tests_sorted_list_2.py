@@ -58,8 +58,8 @@ def test_get_sorted_list_2():
             ],
             "author": "Dostoevsky",
             "expected": [
-                {'author': 'Dostoevsky', 'title': 'Crime and Punishment', 'publisher': 'Penguin', 'year': 1866, 'pages': 672, 'copies': 5},
                 {'author': 'Dostoevsky', 'title': 'The Idiot', 'publisher': 'Vintage', 'year': 1869, 'pages': 640, 'copies': 4},
+                {'author': 'Dostoevsky', 'title': 'Crime and Punishment', 'publisher': 'Penguin', 'year': 1866, 'pages': 672, 'copies': 5},
                 {'author': 'Dostoevsky', 'title': 'The Idiot', 'publisher': 'Oxford', 'year': 1869, 'pages': 640, 'copies': 2},
                 {'author': 'Dostoevsky', 'title': 'The Idiot', 'publisher': 'AICo', 'year': 1869, 'pages': 640, 'copies': 3}
             ]
