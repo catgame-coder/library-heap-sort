@@ -1,7 +1,7 @@
 from heap_sort_custom import heap_sort_custom
 
 def compare_report2(a, b):
-    '''Название (по возрастанию) + издательство (по убыванию).'''
+    '''Издательство (по убыванию) + название (по возрастанию).'''
     if a['publisher'] != b['publisher']:
         return a['publisher'] > b['publisher']
     return a['title'] < b['title']
