@@ -72,5 +72,4 @@ def read_books(filename):
 def print_books(books):
     '''Красивый вывод списка книг.'''
     for book in books:
-        print(f"  {book['author']}; {book['title']}; {book['publisher']}; "
-              f"{book['year']}; {book['pages']}; {book['copies']}")
+        print(f" {book['author']}; {book['title']}; {book['publisher']}; {book['year']}; {book['pages']}; {book['copies']}")
