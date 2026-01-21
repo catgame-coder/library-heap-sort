@@ -1,5 +1,5 @@
 from sorted_list_3 import get_sorted_list_3
-# Автор (по возрастанию) + год выпуска (по убыванию)
+# Год выпуска (по убыванию) + автор (по возрастанию)
 def test_get_sorted_list_3():
     test_cases = [
         {
@@ -12,9 +12,9 @@ def test_get_sorted_list_3():
             "n1": 1940,
             "n2": 1960,
             "expected": [
+                {'author': 'Tolkien', 'title': 'LOTR', 'publisher': 'Allen', 'year': 1954, 'pages': 1200, 'copies': 10},
                 {'author': 'Bradbury', 'title': 'Fahrenheit 451', 'publisher': 'Ballantine', 'year': 1953, 'pages': 249, 'copies': 9},
-                {'author': 'Orwell', 'title': '1984', 'publisher': 'Secker', 'year': 1949, 'pages': 328, 'copies': 5},
-                {'author': 'Tolkien', 'title': 'LOTR', 'publisher': 'Allen', 'year': 1954, 'pages': 1200, 'copies': 10}
+                {'author': 'Orwell', 'title': '1984', 'publisher': 'Secker', 'year': 1949, 'pages': 328, 'copies': 5}
             ]
         },
         {
@@ -67,9 +67,9 @@ def test_get_sorted_list_3():
             "expected": [
                 {'author': 'Булгаков М.А.', 'title': 'Мастер и Маргарита', 'publisher': 'Сов. писатель', 'year': 1967, 'pages': 480, 'copies': 5},
                 {'author': 'Булгаков М.А.', 'title': 'Белая гвардия', 'publisher': 'АСТ', 'year': 1925, 'pages': 400, 'copies': 12},
-                {'author': 'Достоевский Ф.М.', 'title': 'Преступление и наказание', 'publisher': 'АСТ', 'year': 1866, 'pages': 672, 'copies': 5},
                 {'author': 'Толстой Л.Н.', 'title': 'Анна Каренина', 'publisher': 'Азбука', 'year': 1877, 'pages': 864, 'copies': 8},
-                {'author': 'Толстой Л.Н.', 'title': 'Война и мир', 'publisher': 'Эксмо', 'year': 1869, 'pages': 1225, 'copies': 2}
+                {'author': 'Толстой Л.Н.', 'title': 'Война и мир', 'publisher': 'Эксмо', 'year': 1869, 'pages': 1225, 'copies': 2},
+                {'author': 'Достоевский Ф.М.', 'title': 'Преступление и наказание', 'publisher': 'АСТ', 'year': 1866, 'pages': 672, 'copies': 5}
             ]
         },
         {
@@ -85,8 +85,8 @@ def test_get_sorted_list_3():
             "expected": [
                 {'author': 'Bradbury', 'title': 'Dandelion Wine', 'publisher': 'Ballantine', 'year': 1957, 'pages': 249, 'copies': 9},
                 {'author': 'Bradbury', 'title': 'Fahrenheit 451', 'publisher': 'Ballantine', 'year': 1953, 'pages': 249, 'copies': 9},
-                {'author': 'Huxley', 'title': 'Brave New World', 'publisher': 'Chatto', 'year': 1932, 'pages': 311, 'copies': 6},
                 {'author': 'Orwell', 'title': '1984', 'publisher': 'Secker', 'year': 1949, 'pages': 328, 'copies': 5},
+                {'author': 'Huxley', 'title': 'Brave New World', 'publisher': 'Chatto', 'year': 1932, 'pages': 311, 'copies': 6}
             ]
         }
     ]
