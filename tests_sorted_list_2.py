@@ -1,5 +1,5 @@
 from sorted_list_2 import get_sorted_list_2
-# Название (по возрастанию) + издательство (по убыванию)
+# Издательство (по убыванию) + название (по возрастанию)
 def test_get_sorted_list_2():
     test_cases = [
         {
