@@ -90,6 +90,21 @@ def test_read_books():
             "expect_error": False,
             "expected_errors": []
         },
+                {
+            "name": "две одинаковые фамилии",
+            "filename": "files_for_tests_read_books/two_identical_surnames.txt",
+            "expected": [
+                {'author': 'Толстой Л.Н.', 'title': 'Война и мир', 'publisher': 'Эксмо', 'year': 1869, 'pages': 1225, 'copies': 3}, 
+                {'author': 'Толстой А.Н.', 'title': 'Пётр Первый', 'publisher': 'Азбука', 'year': 1945, 'pages': 916, 'copies': 1}, 
+                {'author': 'Чехов А.П.', 'title': 'Рассказы', 'publisher': 'Азбука', 'year': 1890, 'pages': 560, 'copies': 5}, 
+                {'author': 'Tolkien', 'title': 'The Lord of the Rings', 'publisher': 'Allen & Unwin', 'year': 1954, 'pages': 1216, 'copies': 6}, 
+                {'author': 'Булгаков М.А.', 'title': 'Мастер и Маргарита', 'publisher': 'Советский писатель', 'year': 1967, 'pages': 480, 'copies': 8}, 
+                {'author': 'Austen', 'title': 'Pride and Prejudice', 'publisher': 'T. Egerton', 'year': 1813, 'pages': 432, 'copies': 4}
+            ],
+            "expect_error": False,
+            "expected_errors": []
+
+        },
         {
             "name": "неправильное количество элементов",
             "filename": "files_for_tests_read_books/not_six_fields.txt",
